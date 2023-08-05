@@ -1,17 +1,21 @@
-"""Numeros primos"""
+"""usando o Crivo de Eratóstenes."""
 
 
-def num_primo(numero):
-    """funcao para encontrar o numero primo"""
+def crivo_eratostenes(limite):
+    """Encontra todos os números primos até o limite."""
+    numeros = [True] * (limite + 1)
+    numeros[0] = numeros[1] = False
 
-    divisor = 0
-    for i in range(1, 10000):
-        if numero % i == 0:
-            divisor += 1
-    if divisor == 2:
-        return 1
-    return None
+    for i in range(2, int(limite ** 0.5) + 1):
+        if numeros[i]:
+            for j in range(i * i, limite + 1, i):
+                numeros[j] = False
 
-for primos in range(1, 10000):
-    if num_primo(primos) == 1:
-        print(primos)
+    primos = [x for x in range(limite + 1) if numeros[x]]
+    return primos
+
+
+numero_limite = 10000
+
+for numero_primo in crivo_eratostenes(numero_limite):
+    print(numero_primo)
