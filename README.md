@@ -1,4 +1,4 @@
-# Numeros Primos
+# Números Primos
 Este é um programa Python simples que utiliza o _Crivo de Eratóstenes_ para encontrar todos os números primos até 10000. 
 
 O Crivo de Eratóstenes é um algoritmo antigo e eficiente para encontrar números primos em um intervalo específico.
